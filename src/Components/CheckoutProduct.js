@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStateValue } from "../StateContext";
 import "../static/css/checkoutProduct.css";
-function CheckoutProduct({ id, image, title, price, rating}) {
+function CheckoutProduct({ id, image, title, price, rating, hideButton}) {
 	
 	const [,dispatch] = useStateValue();
 	function removeItem(id) {
@@ -29,7 +29,12 @@ function CheckoutProduct({ id, image, title, price, rating}) {
 							)
 						})}
 					</p>
-					<button onClick={removeItem.bind(this, id)} className="checkoutProduct__descriptionRemoveBtn">Remove from basket</button>
+					{
+						!hideButton && (
+							<button onClick={removeItem.bind(this, id)} className="checkoutProduct__descriptionRemoveBtn">Remove from basket</button>
+						)
+					}
+					
 				</div>
 		</div>
 	)

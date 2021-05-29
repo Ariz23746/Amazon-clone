@@ -1,9 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import CurrencyFormat from "react-currency-format"
 import { useStateValue } from '../StateContext';
+import { useHistory } from "react-router-dom"
 import "../static/css/subtotal.css";
 function Subtotal() {
 
+	const history = useHistory();
 	const [state,] = useStateValue();
 	const [total,setTotal] = useState(() => {
 		let p = 0;
@@ -45,7 +47,7 @@ function Subtotal() {
 				thousandSeparator={true}
 				prefix={"₹"}
 			/>
-			<button className="subtotal__btn">Proceed to checkout</button>
+			<button className="subtotal__btn" onClick={e => history.push("/payment")}>Proceed to checkout</button>
 
 		</div>
 	)

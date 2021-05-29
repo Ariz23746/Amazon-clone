@@ -31,7 +31,11 @@ function Login() {
 
 		auth.createUserWithEmailAndPassword(email,password)
 			.then((res) => console.log(res))
+			.then(() => {
+				alert("You are registered ! Now login");
+			})
 			.catch(err => alert(err));
+
 	}
 	return (
 		<div className="login">

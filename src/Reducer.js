@@ -19,7 +19,12 @@ const reducer = (state,action) => {
 			return {
 				...state,
 				user: action.payload,
-			}	
+			}
+		case "EMPTY_BASKET":
+			return {
+				...state,
+				basket: [],
+			}		
 		case "REMOVE_FROM_BASKET":
 			const indexOfItem  = state.basket.findIndex(item => {
 				return (item.id === action.payload)
